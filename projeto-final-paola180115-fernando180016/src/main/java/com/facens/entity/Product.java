@@ -1,4 +1,4 @@
-package com.facens.models;
+package com.facens.entity;
 
 import java.io.Serializable;
 

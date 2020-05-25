@@ -1,28 +1,27 @@
-package com.facens.models.dto;
+package com.facens.entity.newdto;
 
 import java.io.Serializable;
 
-import com.facens.models.Provider;
+import javax.validation.constraints.NotNull;
 
-public class ProviderDTO implements Serializable {
+public class ClientNewDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private Integer id;
-	private String name;
-	private String address;
-	private String contact;
-	private String CNPJ;
 	
-	public ProviderDTO() {}
-	public ProviderDTO(Provider provider) {
-		super();
-		this.id = provider.getId();
-		this.name = provider.getName();
-		this.address = provider.getAddress();
-		this.contact = provider.getContact();
-		this.CNPJ = provider.getCNPJ();
-	}
-		
+	@NotNull (message = "Name is required")
+	private String name;
+	
+	private String address;
+	
+	@NotNull (message = "Contact is required")
+	private String contact;
+	
+	@NotNull (message = "CPF is required")
+	private String CPF;
+	
+	public ClientNewDTO() {}
+	
 	public Integer getId() {
 		return id;
 	}
@@ -55,11 +54,11 @@ public class ProviderDTO implements Serializable {
 		this.contact = contact;
 	}
 	
-	public String getCNPJ() {
-		return CNPJ;
+	public String getCPF() {
+		return CPF;
 	}
 	
-	public void setCNPJ(String CNPJ) {
-		this.CNPJ = CNPJ;
+	public void setCPF(String CPF) {
+		this.CPF = CPF;
 	}
 }

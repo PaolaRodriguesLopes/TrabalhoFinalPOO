@@ -1,4 +1,4 @@
-package com.facens.models.newdto;
+package com.facens.entity.newdto;
 
 import java.io.Serializable;
 

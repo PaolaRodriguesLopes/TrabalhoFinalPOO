@@ -1,27 +1,27 @@
-package com.facens.models.newdto;
+package com.facens.entity.dto;
 
 import java.io.Serializable;
 
-import javax.validation.constraints.NotNull;
+import com.facens.entity.Provider;
 
-public class ProviderNewDTO implements Serializable {
+public class ProviderDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private Integer id;
-	
-	@NotNull (message = "Name is required")
 	private String name;
-	
-	@NotNull (message = "Address is required")
 	private String address;
-	
-	@NotNull (message = "Contact is required")
 	private String contact;
-	
-	@NotNull (message = "CNPJ is required")
 	private String CNPJ;
 	
-	public ProviderNewDTO() {}
+	public ProviderDTO() {}
+	public ProviderDTO(Provider provider) {
+		super();
+		this.id = provider.getId();
+		this.name = provider.getName();
+		this.address = provider.getAddress();
+		this.contact = provider.getContact();
+		this.CNPJ = provider.getCNPJ();
+	}
 		
 	public Integer getId() {
 		return id;

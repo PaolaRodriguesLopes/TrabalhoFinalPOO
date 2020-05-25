@@ -1,10 +1,10 @@
-package com.facens.models.newdto;
+package com.facens.entity.newdto;
 
 import java.io.Serializable;
 
 import javax.validation.constraints.NotNull;
 
-public class ClientNewDTO implements Serializable {
+public class ProviderNewDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private Integer id;
@@ -12,16 +12,17 @@ public class ClientNewDTO implements Serializable {
 	@NotNull (message = "Name is required")
 	private String name;
 	
+	@NotNull (message = "Address is required")
 	private String address;
 	
 	@NotNull (message = "Contact is required")
 	private String contact;
 	
-	@NotNull (message = "CPF is required")
-	private String CPF;
+	@NotNull (message = "CNPJ is required")
+	private String CNPJ;
 	
-	public ClientNewDTO() {}
-	
+	public ProviderNewDTO() {}
+		
 	public Integer getId() {
 		return id;
 	}
@@ -54,11 +55,11 @@ public class ClientNewDTO implements Serializable {
 		this.contact = contact;
 	}
 	
-	public String getCPF() {
-		return CPF;
+	public String getCNPJ() {
+		return CNPJ;
 	}
 	
-	public void setCPF(String CPF) {
-		this.CPF = CPF;
+	public void setCNPJ(String CNPJ) {
+		this.CNPJ = CNPJ;
 	}
 }

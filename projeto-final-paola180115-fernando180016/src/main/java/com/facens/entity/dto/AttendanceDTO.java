@@ -1,4 +1,4 @@
-package com.facens.models.dto;
+package com.facens.entity.dto;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import com.facens.models.Attendance;
+import com.facens.entity.Attendance;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class AttendanceDTO implements Serializable {

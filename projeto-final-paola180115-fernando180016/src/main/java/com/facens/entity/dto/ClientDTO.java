@@ -1,12 +1,10 @@
-package com.facens.models.dto;
+package com.facens.entity.dto;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
-import com.facens.models.Professional;
+import com.facens.entity.Client;
 
-public class ProfessionalDTO implements Serializable {
+public class ClientDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private Integer id;
@@ -14,18 +12,15 @@ public class ProfessionalDTO implements Serializable {
 	private String address;
 	private String contact;
 	private String CPF;
-
-	private Set<String> roles = new HashSet<String>();
 	
-	public ProfessionalDTO() {}
-	public ProfessionalDTO(Professional professional) {
+	public ClientDTO() {}
+	public ClientDTO(Client client) {
 		super();
-		this.id = professional.getId();
-		this.name = professional.getName();
-		this.address = professional.getAddress();
-		this.contact = professional.getContact();
-		this.address = professional.getCPF();
-		this.roles = professional.getRoles();
+		this.id = client.getId();
+		this.name = client.getName();
+		this.address = client.getAddress();
+		this.contact = client.getContact();
+		this.CPF = client.getCPF();
 	}
 
 	public Integer getId() {
@@ -64,15 +59,7 @@ public class ProfessionalDTO implements Serializable {
 		return CPF;
 	}
 	
-	public void setCPF(String cPF) {
-		CPF = cPF;
-	}
-	
-	public Set<String> getRoles() {
-		return roles;
-	}
-	
-	public void setRoles(Set<String> roles) {
-		this.roles = roles;
+	public void setCPF(String CPF) {
+		this.CPF = CPF;
 	}
 }

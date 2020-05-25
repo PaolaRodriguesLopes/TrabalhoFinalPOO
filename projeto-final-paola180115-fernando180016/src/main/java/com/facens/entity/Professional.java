@@ -1,19 +1,22 @@
-package com.facens.models;
+package com.facens.entity;
 
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CollectionTable;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
-public class Provider implements Serializable {
+public class Professional implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -22,21 +25,25 @@ public class Provider implements Serializable {
 	private String name;
 	private String address;
 	private String contact;
-	private String CNPJ;
+	private String CPF;
 	
-	@JsonIgnore @OneToMany (mappedBy = "provider")
-	private Set<Product> products = new HashSet<>();
+	@ManyToMany
+	@JoinTable (name = "professional_attendances", joinColumns = @JoinColumn (name = "professional_id"), inverseJoinColumns = @JoinColumn (name = "attendance_id"))
+	private Set<Attendance> attendances = new HashSet<>();
 	
-	public Provider() {}
-	public Provider(Integer id, String name, String address, String contact, String CNPJ) {
+	@ElementCollection (fetch = FetchType.EAGER) @CollectionTable (name = "roles")
+	private Set<String> roles = new HashSet<String>();
+	
+	public Professional() {}
+	public Professional(Integer id, String name, String address, String contact, String CPF) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.address = address;
 		this.contact = contact;
-		this.CNPJ = CNPJ;
+		this.CPF = CPF;
 	}
-		
+
 	public Integer getId() {
 		return id;
 	}
@@ -69,20 +76,28 @@ public class Provider implements Serializable {
 		this.contact = contact;
 	}
 	
-	public String getCNPJ() {
-		return CNPJ;
+	public String getCPF() {
+		return CPF;
 	}
 	
-	public void setCNPJ(String CNPJ) {
-		this.CNPJ = CNPJ;
+	public void setCPF(String CPF) {
+		this.CPF = CPF;
 	}
 	
-	public Set<Product> getProducts() {
-		return products;
+	public Set<Attendance> getAttendances() {
+		return attendances;
 	}
 	
-	public void setProducts(Set<Product> products) {
-		this.products = products;
+	public void setAttendances(Set<Attendance> attendances) {
+		this.attendances = attendances;
+	}
+	
+	public Set<String> getRoles() {
+		return roles;
+	}
+	
+	public void setRoles(Set<String> roles) {
+		this.roles = roles;
 	}
 	
 	@Override
@@ -101,7 +116,7 @@ public class Provider implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Provider other = (Provider) obj;
+		Professional other = (Professional) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

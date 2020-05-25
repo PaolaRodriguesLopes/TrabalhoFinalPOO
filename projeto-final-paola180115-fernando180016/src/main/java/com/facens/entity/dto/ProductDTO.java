@@ -1,8 +1,8 @@
-package com.facens.models.dto;
+package com.facens.entity.dto;
 
 import java.io.Serializable;
 
-import com.facens.models.Product;
+import com.facens.entity.Product;
 
 public class ProductDTO implements Serializable {
 
