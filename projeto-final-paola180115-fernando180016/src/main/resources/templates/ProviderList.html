@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Providers</title>
+		
+	</head>
+	
+	<body>
+	
+
+		<table>
+			<thead>
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Nome</th>
+					<th scope="col">CNPJ</th>
+					<th scope="col">Contato</th>
+					<th scope="col">Endereço</th>
+					<th scope="col">#</th>
+					<th scope="col">#</th>
+					<th scope="col">#</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="p : ${providers}" scope="row">
+					<td th:text="${p.id}"></td>
+					<td th:text="${p.name}"></td>
+					<td th:text="${p.CNPJ}"></td>
+					<td th:text="${p.contact}"></td>
+					<td th:text="${p.address}"></td>
+					<td>
+						<a th:href="@{'/getProductsByProvider?id=' + ${p.id}}"> Produtos </a>
+					</td>
+					<td>
+						<a th:href="@{'/redirectToUpdateProvider?id=' + ${p.id}}"> Editar </a>
+					</td>
+					<td>
+						<a th:href="@{'/deleteProviders?id=' + ${p.id}}"> Excluir </a>
+					</td>
+				</tr>
+			</tbody>
+	
+		</table>
+		
+		<button type="button" onclick="window.open ('/newProvider', '_self')"> NOVO </button>
+	</body>
+
+</html>
