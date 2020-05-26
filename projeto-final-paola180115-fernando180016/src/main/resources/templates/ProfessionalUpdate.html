@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Atualizar</title>
+		
+	</head>
+	
+
+	<body>
+
+	<form th:action="@{/updateProfessionals}" th:object="${dto}" method="POST">
+		
+		<input type="hidden" name="id" th:value="${dto.id}" th:field="${dto.id}">
+		
+		<div>
+			<label for="inputName">Nome:</label> 
+			<input type="text" id="inputName" name="name" class="form-control" th:value="${dto.name}" required>
+		</div>
+		
+		<div>
+			<label for="inputCPF">CPF:</label> 
+			<input type="text" id="inputCPF" name="CPF" class="form-control" th:value="${dto.CPF}" required>		
+		</div>
+		
+		<div>
+			<label for="inputAddress">Endereço:</label> 
+			<input type="text" id="inputAddress" name="address" class="form-control" th:value="${dto.address}" required>		
+		</div>
+				
+		<div>
+			<label for="inputContact">Contato:</label> 
+			<input type="text" id="inputContact" name="contact" class="form-control" th:value="${dto.contact}" required>		
+		</div>
+		
+		<div>
+			<label for="inputRoles">Cargo:</label> 
+			<input type="text" id="inputRoles" name="roles" class="form-control" th:value="${dto.roles}" required>		
+		</div>
+		
+		<div>
+			
+			<button type="submit" id="" class="btn btn-primary">Atualizar</button>
+		</div>
+</body>
+
+</html>

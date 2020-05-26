@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Profissionais</title>
+		
+	</head>
+	
+	<body>
+	
+
+		<table>
+			<thead>
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Nome</th>
+					<th scope="col">CPF</th>
+					<th scope="col">Contato</th>
+					<th scope="col">Endereço</th>
+					<th scope="col">Cargos</th>
+					<th scope="col">Editar</th>
+					<th scope="col">Excluir</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="p : ${professionals}" scope="row">
+					<td th:text="${p.id}"></td>
+					<td th:text="${p.name}"></td>
+					<td th:text="${p.CPF}"></td>
+					<td th:text="${p.contact}"></td>
+					<td th:text="${p.address}"></td>
+					<td th:text="${p.roles.toString ().replace ('[', '').replace (']', '')}"></td>
+					<td>
+						<a th:href="@{'/update?id=' + ${p.id}}"> Editar </a>
+					</td>
+					<td>
+						<a th:href="@{'/deleteProfessionals?id=' + ${p.id}}"> Excluir </a>
+					</td>
+				</tr>
+			</tbody>
+	
+		</table>
+		
+		<button type="button" onclick="window.open ('/insert', '_self')"> NOVO </button>
+	</body>
+
+</html>

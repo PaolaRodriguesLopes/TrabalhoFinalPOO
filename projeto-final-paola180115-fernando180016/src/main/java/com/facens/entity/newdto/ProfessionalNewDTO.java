@@ -65,8 +65,8 @@ public class ProfessionalNewDTO implements Serializable {
 		return CPF;
 	}
 	
-	public void setCPF(String cPF) {
-		CPF = cPF;
+	public void setCPF(String CPF) {
+		this.CPF = CPF;
 	}
 	
 	public Set<String> getRoles() {

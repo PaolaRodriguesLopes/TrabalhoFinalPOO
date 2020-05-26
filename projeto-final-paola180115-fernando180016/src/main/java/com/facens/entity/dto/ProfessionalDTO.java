@@ -24,7 +24,7 @@ public class ProfessionalDTO implements Serializable {
 		this.name = professional.getName();
 		this.address = professional.getAddress();
 		this.contact = professional.getContact();
-		this.address = professional.getCPF();
+		this.CPF = professional.getCPF();
 		this.roles = professional.getRoles();
 	}
 
@@ -64,8 +64,8 @@ public class ProfessionalDTO implements Serializable {
 		return CPF;
 	}
 	
-	public void setCPF(String cPF) {
-		CPF = cPF;
+	public void setCPF(String CPF) {
+		this.CPF = CPF;
 	}
 	
 	public Set<String> getRoles() {

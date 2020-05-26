@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Profissionais</title>
+		
+	</head>
+	
+
+	<body>
+
+	<form th:action="@{/insertProfessionals}" th:object="${dto}" method="POST">
+		
+		<div>
+			<label for="inputName">Nome:</label> 
+			<input type="text" id="inputName" name="name" class="form-control" required>
+		</div>
+		
+		<div>
+			<label for="inputCPF">CPF:</label> 
+			<input type="text" id="inputCPF" name="CPF" class="form-control" required>		
+		</div>
+		
+		<div>
+			<label for="inputAddress">Endereço:</label> 
+			<input type="text" id="inputAddress" name="address" class="form-control">		
+		</div>
+				
+		<div>
+			<label for="inputContact">Contato:</label> 
+			<input type="text" id="inputContact" name="contact" class="form-control" required>		
+		</div>
+		
+		<div>
+			<label for="inputRoles">Cargo:</label> 
+			<input type="text" id="inputRoles" name="roles" class="form-control" required>		
+		</div>
+		
+		<div>
+			
+			<button type="submit" id="" class="btn btn-primary">Salvar</button>
+		</div>
+</body>
+
+</html>
