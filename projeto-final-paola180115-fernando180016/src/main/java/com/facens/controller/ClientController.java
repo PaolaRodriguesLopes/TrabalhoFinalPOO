@@ -64,20 +64,17 @@ public class ClientController {
 	@GetMapping("/deleteClients")
 	public String delete (@RequestParam Integer id)
 	{
-		Client c = cs.getClientById (id);
-		if (c != null) {
-			cs.deleteById (id);
-			return "redirect:/clients";
+		try {
+			Client c = cs.getClientById (id);
+			if (c != null) {
+				cs.deleteById (id);
+				return "redirect:/clients";
+			}
+			else {
+				return "redirect:/errorPage";
+			}
+		} catch (Exception e) {
+			return "redirect:/errorPage";
 		}
-		else {
-			return "redirect:/erro";
-		}
-	}
-	
-	@GetMapping("/erroClient")
-	public ModelAndView getError()
-	{
-		ModelAndView mv = new ModelAndView("ErrorPage");
-		return mv;
 	}
 }

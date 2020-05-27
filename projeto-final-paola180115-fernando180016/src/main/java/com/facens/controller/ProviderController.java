@@ -64,20 +64,20 @@ public class ProviderController {
 	@GetMapping("/deleteProviders")
 	public String delete (@RequestParam Integer id)
 	{
-		Provider p = ps.getProviderById (id);
-		if (p != null) {
-			ps.deleteById (id);
-			return "redirect:/providers";
+		try 
+		{
+			Provider p = ps.getProviderById (id);
+			if (p != null) {
+				ps.deleteById (id);
+				return "redirect:/providers";
+			}
+			else {
+				return "redirect:/errorPage";
+			}
+		} 
+		catch (Exception e) 
+		{
+			return "redirect:/errorPage";
 		}
-		else {
-			return "redirect:/erroProvider";
-		}
-	}
-	
-	@GetMapping("/erroProvider")
-	public ModelAndView getError()
-	{
-		ModelAndView mv = new ModelAndView("ErrorPage");
-		return mv;
 	}
 }

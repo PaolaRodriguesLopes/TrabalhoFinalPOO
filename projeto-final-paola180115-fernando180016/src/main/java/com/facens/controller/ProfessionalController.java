@@ -66,20 +66,17 @@ public class ProfessionalController {
 	@GetMapping("/deleteProfessionals")
 	public String delete (@RequestParam Integer id)
 	{
-		Professional p = ps.getProfessionalById (id);
-		if (p != null) {
-			ps.deleteById (id);
-			return "redirect:/professionals";
+		try {
+			Professional p = ps.getProfessionalById (id);
+			if (p != null) {
+				ps.deleteById (id);
+				return "redirect:/professionals";
+			}
+			else {
+				return "redirect:/errorPage";
+			}
+		} catch (Exception e) {
+			return "redirect:/errorPage";
 		}
-		else {
-			return "redirect:/erro";
-		}
-	}
-	
-	@GetMapping("/erro")
-	public ModelAndView getError()
-	{
-		ModelAndView mv = new ModelAndView("ErrorPage");
-		return mv;
 	}
 }

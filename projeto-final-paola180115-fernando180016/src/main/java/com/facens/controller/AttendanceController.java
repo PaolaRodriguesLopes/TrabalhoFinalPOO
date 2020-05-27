@@ -138,20 +138,20 @@ public class AttendanceController {
 	@GetMapping("/deleteAttendances")
 	public String delete (@RequestParam Integer id)
 	{
-		Attendance c = as.getAttendanceById (id);
-		if (c != null) {
-			as.deleteById (id);
-			return "redirect:/attendances";
-		}
-		else {
-			return "redirect:/erroAttendance";
-		}
-	}
-	
-	@GetMapping("/erroAttendance")
-	public ModelAndView getError()
-	{
-		ModelAndView mv = new ModelAndView("ErrorPage");
-		return mv;
+		try 
+		{
+			Attendance c = as.getAttendanceById (id);
+			if (c != null) {
+				as.deleteById (id);
+				return "redirect:/attendances";
+			}
+			else {
+				return "redirect:/errorPage";
+			}
+		} 
+		catch (Exception e) 
+		{
+			return "redirect:/errorPage";
+		}		
 	}
 }

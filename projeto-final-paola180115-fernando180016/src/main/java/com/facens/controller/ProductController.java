@@ -81,20 +81,17 @@ public class ProductController {
 	@GetMapping("/deleteProducts")
 	public String delete (@RequestParam Integer id)
 	{
-		Product p = ps.getProductById (id);
-		if (p != null) {
-			ps.deleteById (id);
-			return "redirect:/products";
+		try {
+			Product p = ps.getProductById (id);
+			if (p != null) {
+				ps.deleteById (id);
+				return "redirect:/products";
+			}
+			else {
+				return "redirect:/errorPage";
+			}
+		} catch (Exception e) {
+			return "redirect:/errorPage";
 		}
-		else {
-			return "redirect:/erroProduct";
-		}
-	}
-	
-	@GetMapping("/erroProduct")
-	public ModelAndView getError()
-	{
-		ModelAndView mv = new ModelAndView("ErrorPage");
-		return mv;
 	}
 }
