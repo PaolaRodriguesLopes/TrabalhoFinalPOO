@@ -24,6 +24,7 @@ private static final long serialVersionUID = 1L;
 		this.quantitySku = product.getQuantitySku();
 		this.usedQuantity = product.getUsedQuantity();
 		this.price = product.getPrice();
+		this.provider = new ProviderDTO (product.getProvider ());
 	}
 		
 	public Integer getId() {

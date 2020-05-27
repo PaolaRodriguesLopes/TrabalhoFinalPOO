@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Atualizar</title>
+		
+	</head>
+	
+
+	<body>
+
+	<form th:action="@{/updateProducts}" th:object="${dto}" method="POST">
+	
+		<input type="hidden" name="id" th:value="${dto.id}" th:field="${dto.id}">
+		<input type="hidden" name="providerId" th:value="${dto.provider.id}" th:field="${dto.provider.id}">
+	
+		<div>
+			<label for="inputName">Nome:</label> 
+			<input type="text" id="inputName" name="name" class="form-control" th:value="${dto.name}" required>
+		</div>
+		
+		<div>
+			<label for="inputQuantitySKU">Quantidade em Estoque:</label> 
+			<input type="text" id="inputQuantitySKU" name="quantitySku" th:value="${dto.quantitySku}" class="form-control" required>		
+		</div>
+		
+		<div>
+			<label for="inputUsedQuantity">Quantidade Usada:</label> 
+			<input type="text" id="inputUsedQuantity" name="usedQuantity" class="form-control" th:value="${dto.usedQuantity}" required>		
+		</div>
+				
+		<div>
+			<label for="inputPrice">Preço:</label> 
+			<input type="text" id="inputPrice" name="price" class="form-control" th:value="${dto.price}" required>		
+		</div>
+		
+		<div>
+			<label for="selectProvider">Fornecedor: <span th:text="${dto.provider.name}"></span> </label> 
+		
+		</div>
+		
+		<div>
+			
+			<button type="submit" id="" class="btn btn-primary">Atualizar</button>
+		</div>
+</body>
+
+</html>

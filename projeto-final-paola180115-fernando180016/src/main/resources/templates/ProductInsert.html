@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Product</title>
+		
+	</head>
+	
+
+	<body>
+
+	<form th:action="@{/insertProducts}" th:object="${dto}" method="POST">
+		
+		<div>
+			<label for="inputName">Nome:</label> 
+			<input type="text" id="inputName" name="name" class="form-control" required>
+		</div>
+		
+		<div>
+			<label for="inputQuantitySKU">Quantidade em Estoque:</label> 
+			<input type="text" id="inputQuantitySKU" name="quantitySku" class="form-control" required>		
+		</div>
+		
+		<div>
+			<label for="inputUsedQuantity">Quantidade Usada:</label> 
+			<input type="text" id="inputUsedQuantity" name="usedQuantity" class="form-control" required>		
+		</div>
+				
+		<div>
+			<label for="inputPrice">Preço:</label> 
+			<input type="text" id="inputPrice" name="price" class="form-control" required>		
+		</div>
+		
+		<div>
+			<label for="selectProvider">Fornecedor: </label> 
+			<select id="selectProvider" name="providerId" class="form-control" required>
+				<option value=""> Escolha uma opção </option>
+				<option th:each="p : ${providers}" th:value="${p.id}"  th:text="${p.name}"> </option>
+			</select>		
+		</div>
+		
+		<div>
+			
+			<button type="submit" id="" class="btn btn-primary">Salvar</button>
+		</div>
+</body>
+
+</html>

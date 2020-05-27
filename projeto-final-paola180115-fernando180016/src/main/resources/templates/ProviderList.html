@@ -32,7 +32,7 @@
 					<td th:text="${p.contact}"></td>
 					<td th:text="${p.address}"></td>
 					<td>
-						<a th:href="@{'/getProductsByProvider?id=' + ${p.id}}"> Produtos </a>
+						<a th:href="@{'/productsByProvider?id=' + ${p.id}}"> Produtos </a>
 					</td>
 					<td>
 						<a th:href="@{'/redirectToUpdateProvider?id=' + ${p.id}}"> Editar </a>
