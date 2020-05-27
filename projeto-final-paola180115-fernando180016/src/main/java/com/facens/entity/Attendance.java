@@ -7,10 +7,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,22 +26,27 @@ public class Attendance implements Serializable {
 	@Id @GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private Timestamp datetime;
+	private String status;
 	
 	@ManyToMany (mappedBy = "attendances")
 	private Set<Professional> professionals = new HashSet<>();
 	
-	@ElementCollection @CollectionTable (name = "used_products")
+	@ElementCollection (fetch = FetchType.EAGER) @CollectionTable (name = "used_products")
 	private List<Integer> productsIds = new ArrayList<>();
 	
-	@ManyToOne (cascade = CascadeType.ALL) @JoinColumn (name = "client_id")
+	@ManyToOne @JoinColumn (name = "client_id")
 	private Client client;
 	
-	public Attendance() {}
+	public Attendance() {
+		this.status = "Agendado";
+	}
+	
 	public Attendance(Integer id, Timestamp datetime, Client client) {
 		super();
 		this.id = id;
 		this.datetime = datetime;
 		this.client = client;
+		this.status = "Agendado";
 	}
 
 	public Integer getId() {
@@ -58,6 +63,14 @@ public class Attendance implements Serializable {
 	
 	public void setDatetime(Timestamp datetime) {
 		this.datetime = datetime;
+	}
+	
+	public String getStatus() {
+		return status;
+	}
+	
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 	public Set<Professional> getProfessionals() {

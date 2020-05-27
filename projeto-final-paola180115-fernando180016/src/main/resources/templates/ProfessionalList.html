@@ -20,8 +20,9 @@
 					<th scope="col">Contato</th>
 					<th scope="col">Endereço</th>
 					<th scope="col">Cargos</th>
-					<th scope="col">Editar</th>
-					<th scope="col">Excluir</th>
+					<th scope="col">#</th>
+					<th scope="col">#</th>
+					<th scope="col">#</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -32,6 +33,9 @@
 					<td th:text="${p.contact}"></td>
 					<td th:text="${p.address}"></td>
 					<td th:text="${p.roles.toString ().replace ('[', '').replace (']', '')}"></td>
+					<td>
+						<a th:href="@{'attendancesByProfessional?id=' + ${p.id}}"> Atendimentos </a>
+					</td>					
 					<td>
 						<a th:href="@{'/update?id=' + ${p.id}}"> Editar </a>
 					</td>

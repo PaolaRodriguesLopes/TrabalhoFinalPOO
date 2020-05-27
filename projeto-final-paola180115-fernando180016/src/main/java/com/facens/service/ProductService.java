@@ -35,7 +35,6 @@ public class ProductService {
 		return pr.findByProvider (provider);
 	}
 	
-	
 	public Product getProductById (Integer id) {
 		Optional<Product> Product = pr.findById (id);
 		return Product.orElseThrow (null);

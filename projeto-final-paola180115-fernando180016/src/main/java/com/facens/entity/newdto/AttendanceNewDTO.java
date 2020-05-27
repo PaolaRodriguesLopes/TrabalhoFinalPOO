@@ -1,7 +1,6 @@
 package com.facens.entity.newdto;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -17,9 +16,9 @@ public class AttendanceNewDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Integer id;
 	
-	@JsonFormat (pattern = "yyyy-MM-dd HH:mm")
+	@JsonFormat (pattern = "yyyy-MM-dd HH:mm:ss.SSS")
 	@NotNull (message = "Datetime is required")
-	private Timestamp datetime;
+	private String datetime;
 	
 	@NotNull (message = "At least one professional is required")
 	@NotEmpty (message = "At least one professional is required")
@@ -40,11 +39,11 @@ public class AttendanceNewDTO implements Serializable {
 		this.id = id;
 	}
 
-	public Timestamp getDatetime() {
+	public String getDatetime() {
 		return datetime;
 	}
 
-	public void setDatetime(Timestamp datetime) {
+	public void setDatetime(String datetime) {
 		this.datetime = datetime;
 	}
 

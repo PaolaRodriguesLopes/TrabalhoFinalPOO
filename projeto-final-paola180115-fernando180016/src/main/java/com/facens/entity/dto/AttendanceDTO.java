@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import com.facens.entity.Attendance;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -17,6 +18,9 @@ public class AttendanceDTO implements Serializable {
 	
 	@JsonFormat (pattern = "yyyy-MM-dd HH:mm")
 	private Timestamp datetime;
+	
+	private String status;
+	
 	private Set<ProfessionalDTO> professionals = new HashSet<>();
 	private List<ProductDTO> products = new ArrayList<>();
 	private ClientDTO client;
@@ -26,6 +30,9 @@ public class AttendanceDTO implements Serializable {
 		super();
 		this.id = attendance.getId();
 		this.datetime = attendance.getDatetime();
+		this.status = attendance.getStatus();
+		this.client = new ClientDTO (attendance.getClient ());
+		this.professionals = attendance.getProfessionals ().stream().map(p -> new ProfessionalDTO(p)).collect(Collectors.toSet());
 	}
 
 	public Integer getId() {
@@ -42,6 +49,14 @@ public class AttendanceDTO implements Serializable {
 	
 	public void setDatetime(Timestamp datetime) {
 		this.datetime = datetime;
+	}
+	
+	public String getStatus() {
+		return status;
+	}
+	
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 	public Set<ProfessionalDTO> getProfessionals() {

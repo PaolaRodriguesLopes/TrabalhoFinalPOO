@@ -19,8 +19,9 @@
 					<th scope="col">CPF</th>
 					<th scope="col">Contato</th>
 					<th scope="col">Endereço</th>
-					<th scope="col">Editar</th>
-					<th scope="col">Excluir</th>
+					<th scope="col">#</th>
+					<th scope="col">#</th>
+					<th scope="col">#</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -30,6 +31,9 @@
 					<td th:text="${c.CPF}"></td>
 					<td th:text="${c.contact}"></td>
 					<td th:text="${c.address}"></td>
+					<td>
+						<a th:href="@{'attendancesByClient?id=' + ${c.id}}"> Atendimentos </a>
+					</td>	
 					<td>
 						<a th:href="@{'/redirectToUpdateClient?id=' + ${c.id}}"> Editar </a>
 					</td>

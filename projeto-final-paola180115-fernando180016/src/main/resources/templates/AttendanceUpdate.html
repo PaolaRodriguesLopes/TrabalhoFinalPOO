@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Atualizar</title>
+		
+	</head>
+	
+
+	<body>
+
+	<form th:action="@{/updateAttendances}" th:object="${dto}" method="POST">
+	
+		<!-- hidden -->
+		<input type="hidden" name="id" th:value="${dto.id}" th:field="${dto.id}">
+		<input type="hidden" name="datetime" th:value="${dto.datetime}" th:field="${dto.datetime}">
+		<input th:each="p: ${dto.professionals}" type="hidden" name="professionalIds" th:value="${p.id}">
+		<input type="hidden" name="clientId" th:value="${dto.client.id}">
+	
+		<div>
+			<label> Horário: <span th:text="${dto.datetime}" ></span> </label> 
+		</div>
+		
+		<div>
+			<label> Profissional (is): </label>
+			<span th:each="p: ${dto.professionals}" th:text="${p.name}"></span>
+		</div>
+		
+				
+		<div>
+			<label> Cliente: <span th:text="${dto.client.name}"></span> </label> 
+		</div>
+		
+		
+		<div>
+			<label for="selectProduct"> Produto: </label> 
+			<select id="selectProduct" name="productIds" class="form-control" required>
+				<option value=""> Escolha uma opção </option>
+				<option th:each="p : ${products}" th:value="${p.id}" th:text="${p.name} + ' - ' + ${p.provider.name}"> </option>
+			</select>		
+		</div>
+		
+		<div>
+			<button type="submit" class=""> Finalizar Atendimento  </button>
+		</div>
+	
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Attendance</title>
+		
+	</head>
+	
+
+	<body>
+
+	<form th:action="@{/insertAttendances}" th:object="${dto}" method="POST">
+		
+		<div>
+			<label for="inputDatetime">Horário:</label> 
+			<input type="datetime-local" id="inputDatetime" name="datetime" class="form-control" step="2" required>
+		</div>
+		
+		<div>
+			<label for="selectProfessional">Profissional: </label> 
+			<select id="selectProfessional" name="professionalIds" class="form-control" required>
+				<option value=""> Escolha uma opção </option>
+				<option th:each="p : ${professionals}" th:value="${p.id}"  th:text="${p.name}"> </option>
+			</select>		
+		</div>
+		
+		<div>
+			<label for="selectClient">Cliente: </label> 
+			<select id="selectClient" name="clientId" class="form-control" required>
+				<option value=""> Escolha uma opção </option>
+				<option th:each="c : ${clients}" th:value="${c.id}"  th:text="${c.name}"> </option>
+			</select>		
+		</div>
+		
+		<div>
+			
+			<button type="submit" id="" class="btn btn-primary">Salvar</button>
+		</div>
+</body>
+
+</html>
