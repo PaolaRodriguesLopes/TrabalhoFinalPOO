@@ -24,7 +24,13 @@ public class AttendanceNewDTO implements Serializable {
 	@NotEmpty (message = "At least one professional is required")
 	private Set<Integer> professionalIds = new HashSet<>();
 	
+	@NotNull (message = "At least one product is required")
+	@NotEmpty (message = "At least one product is required")
 	private List<Integer> productIds = new ArrayList<>();
+	
+	@NotNull (message = "At least one used quantity for product is required")
+	@NotEmpty (message = "At least one used quantity for product is required")
+	private List<Integer> usedQuantities = new ArrayList<>();
 	
 	@NotNull (message = "Client is required")
 	private Integer clientId;
@@ -61,6 +67,14 @@ public class AttendanceNewDTO implements Serializable {
 
 	public void setProductIds(List<Integer> productIds) {
 		this.productIds = productIds;
+	}
+	
+	public List<Integer> getUsedQuantities() {
+		return usedQuantities;
+	}
+	
+	public void setUsedQuantities(List<Integer> usedQuantities) {
+		this.usedQuantities = usedQuantities;
 	}
 
 	public Integer getClientId() {

@@ -19,6 +19,7 @@ import com.facens.entity.dto.ProfessionalDTO;
 import com.facens.entity.newdto.AttendanceNewDTO;
 import com.facens.repository.IAttendanceRepository;
 import com.facens.repository.IClientRepository;
+import com.facens.repository.IProductRepository;
 import com.facens.repository.IProfessionalRepository;
 
 @Service
@@ -41,6 +42,9 @@ public class AttendanceService {
 	
 	@Autowired
 	private ProductService productService;
+	
+	@Autowired
+	private IProductRepository productRepository;
 	
 	public List<Attendance> getAttendances () {
 		return ar.findAll ();
@@ -142,8 +146,17 @@ public class AttendanceService {
 			att.getProfessionals ().add (p);
 		}
 				
-		for (Integer id : dto.getProductIds()) {
+		for (int index = 0; index < dto.getProductIds().size(); index++) {
+			Integer id = dto.getProductIds().get(index);
 			Product p = productService.getProductById(id);
+			
+			Integer currentUsedQuantities = (p.getUsedQuantity() + dto.getUsedQuantities().get(index));
+			Integer currentQuantitySku = (p.getQuantitySku () - dto.getUsedQuantities().get(index));
+			p.setQuantitySku(currentQuantitySku > 0 ? currentQuantitySku : 0);
+			p.setUsedQuantity(currentUsedQuantities);
+			
+			productRepository.save(p);
+			
 			att.getProductsIds().add(p.getId());
 		}
 				

@@ -121,7 +121,7 @@ public class AttendanceController {
 		Attendance c = as.getAttendanceById (id);
 		AttendanceDTO dto = new AttendanceDTO (c);
 		
-		List<ProductDTO> listP = productService.getProducts ().stream().map(p -> new ProductDTO(p)).collect (Collectors.toList ());
+		List<ProductDTO> listP = productService.getProductsWhenQuantitySkuGreaterThanZero ().stream().map(p -> new ProductDTO(p)).collect (Collectors.toList ());
 		mv.addObject ("dto", dto);
 		mv.addObject ("products", listP);
 		return mv;
