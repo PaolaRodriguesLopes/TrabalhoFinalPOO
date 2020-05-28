@@ -39,8 +39,6 @@ public class ProfessionalController {
 	
 	@PostMapping("/insertProfessionals")
 	public String insert (@ModelAttribute ProfessionalNewDTO dto) {
-		
-		System.out.println(dto.getName());
 		Professional p = ps.fromNewDTO(dto);
 		ps.insert(p);
 		return "redirect:/professionals";
@@ -68,7 +66,13 @@ public class ProfessionalController {
 	{
 		try {
 			Professional p = ps.getProfessionalById (id);
+	
 			if (p != null) {
+				
+				if (p.getAttendances().size() != 0) {
+					return "redirect:/errorPage";
+				}
+				
 				ps.deleteById (id);
 				return "redirect:/professionals";
 			}

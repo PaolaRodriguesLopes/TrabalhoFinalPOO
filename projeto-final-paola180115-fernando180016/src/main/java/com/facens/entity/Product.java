@@ -2,7 +2,6 @@ package com.facens.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,7 +21,7 @@ private static final long serialVersionUID = 1L;
 	private Integer usedQuantity;
 	private Double price;
 	
-	@ManyToOne (cascade = CascadeType.ALL) @JoinColumn (name = "provider_id")
+	@ManyToOne @JoinColumn (name = "provider_id")
 	private Provider provider;
 	
 	public Product() {}		
