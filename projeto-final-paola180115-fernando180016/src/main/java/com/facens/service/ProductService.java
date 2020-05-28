@@ -39,6 +39,10 @@ public class ProductService {
 		return pr.findByQuantitySkuGreaterThanZero();
 	}
 	
+	public Integer getUsedProductsCountByProductId (Integer productId) {
+		return pr.getUsedProductsCountByProductId (productId);
+	}
+	
 	public Product getProductById (Integer id) {
 		Optional<Product> Product = pr.findById (id);
 		return Product.orElseThrow (null);
@@ -76,9 +80,7 @@ public class ProductService {
 		
 		p.setId (dto.getId ());
 		p.setName (dto.getName ());
-		
-		Integer currentQuantitySku = (dto.getQuantitySku () - dto.getUsedQuantity ());
-		p.setQuantitySku(currentQuantitySku > 0 ? currentQuantitySku : 0);
+		p.setQuantitySku(dto.getQuantitySku ());
 		p.setUsedQuantity(dto.getUsedQuantity());
 		p.setPrice(dto.getPrice() > 0 ? dto.getPrice() : 0);
 		
@@ -90,9 +92,7 @@ public class ProductService {
 	
 	private void updateData (Product oldProduct, Product newProduct) {
 		newProduct.setName (oldProduct.getName ());
-		
-		Integer currentQuantitySku = (oldProduct.getQuantitySku () - oldProduct.getUsedQuantity ());
-		newProduct.setQuantitySku(currentQuantitySku > 0 ? currentQuantitySku : 0);
+		newProduct.setQuantitySku(oldProduct.getQuantitySku ());
 		newProduct.setUsedQuantity(oldProduct.getUsedQuantity());
 		newProduct.setPrice(oldProduct.getPrice() > 0 ? oldProduct.getPrice() : 0);
 	}

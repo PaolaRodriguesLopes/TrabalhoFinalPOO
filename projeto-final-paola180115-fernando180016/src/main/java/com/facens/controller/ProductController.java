@@ -82,6 +82,10 @@ public class ProductController {
 	public String delete (@RequestParam Integer id)
 	{
 		try {
+			if (ps.getUsedProductsCountByProductId (id) != 0) {
+				return "redirect:/errorPage";
+			}
+
 			Product p = ps.getProductById (id);
 			if (p != null) {
 				ps.deleteById (id);
