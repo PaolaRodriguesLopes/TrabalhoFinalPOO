@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ProjetoFinalPaola180115Fernando180016Application<projeto-final-paola180115-fernando180016>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.facens.ProjetoFinalPaola180115Fernando180016Application",
+            "projectName": "projeto-final-paola180115-fernando180016",
+            "args": ""
+        }
+    ]
+}
