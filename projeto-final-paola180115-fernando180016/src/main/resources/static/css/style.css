@@ -1,0 +1,31 @@
+.topo{
+    border-bottom: 7px solid #bb167f26;
+}
+
+nav{
+    background: #bb167f;
+    padding: 5px 0px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+    margin: 0;
+}
+
+nav ul li{
+    margin-right: 15px;
+}
+
+nav ul li a:link, nav ul li a:visited{
+    color: #fff;
+    padding: 6px 6px 7px 6px;
+}
+
+nav ul li a:hover, nav ul li a.actived{
+    background: #5f033d;
+    padding: 6px 6px 7px 6px;
+    text-decoration: none;
+}

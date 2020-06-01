@@ -1,11 +1,11 @@
 ----------------------------------------------------------------
-Sat May 30 12:40:14 BRT 2020:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0172-663d-9fe6-000006d56680 
-on database directory C:\Users\paola\OneDrive\Documentos\GitHub\TrabalhoFinalPOO\projeto-final-paola180115-fernando180016\dba180115_180016 with class loader sun.misc.Launcher$AppClassLoader@764c12b6 
-Loaded from file:/C:/Users/paola/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
+Sun May 31 21:58:00 BRT 2020:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0172-6d62-a476-00000153e130 
+on database directory C:\Users\Fernando\Desktop\Projetos\POO_Final\TrabalhoFinalPOO\projeto-final-paola180115-fernando180016\dba180115_180016 with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@2626b418 
+Loaded from file:/C:/Users/Fernando/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_191-b12
-user.dir=c:\Users\paola\OneDrive\Documentos\GitHub\TrabalhoFinalPOO\projeto-final-paola180115-fernando180016
+java.runtime.version=14+36-1461
+user.dir=c:\Users\Fernando\Desktop\Projetos\POO_Final\TrabalhoFinalPOO\projeto-final-paola180115-fernando180016
 os.name=Windows 10
 os.arch=amd64
 os.version=10.0
