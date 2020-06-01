@@ -45,3 +45,8 @@ nav ul li a:hover, nav ul li a.actived{
 .table .thead-dark th{
     font-size: 12px !important;
 }
+
+.btn-new, .btn-new:hover{
+    background: #bb167f;
+    color: #fff;
+}
