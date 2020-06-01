@@ -29,3 +29,19 @@ nav ul li a:hover, nav ul li a.actived{
     padding: 6px 6px 7px 6px;
     text-decoration: none;
 }
+
+.subtitulo{
+    background: #8f969e;
+    float: left;
+    color: #fff;
+    padding: 5px;
+    font-weight: 300;
+    margin-top: 16px;
+    margin-bottom: 0px;
+    border-top-right-radius: 8px;
+    font-size: 20px;
+}
+
+.table .thead-dark th{
+    font-size: 12px !important;
+}

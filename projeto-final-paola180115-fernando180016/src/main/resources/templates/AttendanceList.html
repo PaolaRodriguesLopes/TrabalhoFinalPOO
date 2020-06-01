@@ -22,8 +22,8 @@
 			<img src="../assets/images/topo.png" class="img-fluid">
 			</div>
 			<nav>
-				<ul>
-					<li><a href="/attendances">Agenda</a></li>
+				<ul class="container">
+					<li><a class="activated" href="/attendances">Agenda</a></li>
 					<li><a href="/clients">Clientes</a></li>
 					<li><a href="/providers">Fornecedores</a></li>
 					<li><a href="/professionals">Funcionários</a></li>
@@ -31,8 +31,10 @@
 				</ul>
 			</nav>
 
-		<table>
-			<thead>
+<div class="container">
+	<h2 class="subtitulo">Agenda</h2>
+		<table class="table table-sm">
+			<thead class="thead-dark">
 				<tr>
 					<th scope="col">ID</th>
 					<th scope="col">Horário</th>
@@ -80,7 +82,9 @@
 			</tbody>
 	
 		</table>
-		
+	
+		</div>
+
 		<button type="button" onclick="window.open ('/newAttendance', '_self')"> AGENDAR NOVO ATENDIMENTO </button>
 	</body>
 

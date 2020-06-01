@@ -21,7 +21,7 @@
 			<img src="../assets/images/topo.png" class="img-fluid">
 			</div>
 			<nav>
-				<ul>
+				<ul class="container">
 					<li><a href="/attendances">Agenda</a></li>
 					<li><a href="/clients">Clientes</a></li>
 					<li><a href="/providers">Fornecedores</a></li>
@@ -30,8 +30,13 @@
 				</ul>
 			</nav>
 
-		<table>
-			<thead>
+			
+<div class="container">
+
+	<h2 class="subtitulo">Clientes</h2>
+
+		<table class="table table-sm">
+			<thead class="thead-dark">
 				<tr>
 					<th scope="col">ID</th>
 					<th scope="col">Nome</th>
@@ -64,6 +69,8 @@
 	
 		</table>
 		
+</div>
+
 		<button type="button" onclick="window.open ('/newClient', '_self')"> NOVO </button>
 	</body>
 
