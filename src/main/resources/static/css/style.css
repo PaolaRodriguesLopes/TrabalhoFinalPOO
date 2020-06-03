@@ -50,3 +50,8 @@ nav ul li a:hover, nav ul li a.actived{
     background: #bb167f;
     color: #fff;
 }
+
+.divCadastro{
+    border: 1px solid #d8d8d8;
+    padding: 15px;
+}

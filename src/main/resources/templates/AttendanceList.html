@@ -44,7 +44,7 @@
 					<th scope="col">#</th>
 					<th scope="col">#</th>
 					<th scope="col">Produtos Usados</th>
-					<th scope="col">#</th>
+					<th scope="col">Ações</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -75,8 +75,10 @@
 						</span>
 						<span th:case="*"> Nenhum </span>
 					</td>
+
+					
 					<td>
-						<a th:href="@{'/deleteAttendances?id=' + ${a.id}}"> Excluir </a>
+						<a class="btn btn-danger btn-sm" th:href="@{'/deleteAttendances?id=' + ${a.id}}"> Excluir </a>
 					</td>
 				</tr>
 			</tbody>
