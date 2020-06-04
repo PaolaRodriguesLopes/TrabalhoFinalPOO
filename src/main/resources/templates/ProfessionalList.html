@@ -60,10 +60,10 @@
 						<a th:href="@{'attendancesByProfessional?id=' + ${p.id}}"> Atendimentos </a>
 					</td>					
 					<td>
-						<a th:href="@{'/update?id=' + ${p.id}}"> Editar </a>
+						<a th:href="@{'/update?id=' + ${p.id}}"> <img src="../assets/images/edit-icon.png" width="30px" title="Editar"> </a>
 					</td>
 					<td>
-						<a th:href="@{'/deleteProfessionals?id=' + ${p.id}}"> Excluir </a>
+						<a th:href="@{'/deleteProfessionals?id=' + ${p.id}}"> <img src="../assets/images/delete-icon.png" width="30px" title="Excluir"> </a>
 					</td>
 				</tr>
 			</tbody>

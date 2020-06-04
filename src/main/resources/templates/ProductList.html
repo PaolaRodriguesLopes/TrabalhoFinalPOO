@@ -55,10 +55,10 @@
 					<td th:text="${p.price}"></td>
 					<td th:text="${p.provider.name}"></td>
 					<td>
-						<a th:href="@{'/redirectToUpdateProduct?id=' + ${p.id}}"> Editar </a>
+						<a th:href="@{'/redirectToUpdateProduct?id=' + ${p.id}}"> <img src="../assets/images/edit-icon.png" width="30px" title="Editar"> </a>
 					</td>
 					<td>
-						<a th:href="@{'/deleteProducts?id=' + ${p.id}}"> Excluir </a>
+						<a th:href="@{'/deleteProducts?id=' + ${p.id}}"> <img src="../assets/images/delete-icon.png" width="30px" title="Excluir"> </a>
 					</td>
 				</tr>
 			</tbody>
