@@ -1,69 +1,112 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Atualizar</title>
-		
-		 <!-- CSS only -->
-		 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-		 <link rel="stylesheet" href="../css/style.css">
-		 <!-- JS, Popper.js, and jQuery -->
-		 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-		 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-		 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-	  
-	</head>
-	
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Atualizar</title>
 
-	<body>
-		<div class="topo">
-			<img src="../assets/images/topo.png" class="img-fluid">
+	<!-- CSS only -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="../css/style.css">
+	<!-- JS, Popper.js, and jQuery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+		integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+		crossorigin="anonymous"></script>
+
+</head>
+
+
+<body>
+	<div class="topo">
+		<img src="../assets/images/topo.png" class="img-fluid">
+	</div>
+	<nav>
+		<ul class="container">
+			<li><a href="/attendances">Agenda</a></li>
+			<li><a href="/clients">Clientes</a></li>
+			<li><a href="/providers">Fornecedores</a></li>
+			<li><a href="/professionals">Funcionários</a></li>
+			<li><a href="/products">Produtos</a></li>
+		</ul>
+	</nav>
+
+
+	<div class="container">
+		<div class="row">
+			<h2 class="subtitulo">Atualizar Produto</h2>
+			<hr>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6 divCadastro">
+				<form th:action="@{/updateProducts}" th:object="${dto}" method="POST">
+
+					<input type="hidden" name="id" th:value="${dto.id}" th:field="${dto.id}">
+					<input type="hidden" name="providerId" th:value="${dto.provider.id}" th:field="${dto.provider.id}">
+
+					<div class="form-row mb-1">
+						<div class="col-md-6">
+							<label for="inputName">Nome:</label>
+							<input type="text" id="inputName" name="name" class="form-control" th:value="${dto.name}"
+								required>
+						</div>
+
+						<div class="col-md-6">
+							<br><br>
+							<label for="selectProvider">Fornecedor: <span th:text="${dto.provider.name}"></span>
+							</label>
+						</div>
+					</div>
+
+					<div class="form-row mb-1">
+						<div class="col-md-4">
+							<label for="inputQuantitySKU">Qtd em Estoque:</label>
+							<input type="text" id="inputQuantitySKU" name="quantitySku" th:value="${dto.quantitySku}"
+								class="form-control" required>
+						</div>
+
+
+						<div class="col-md-4">
+							<label for="inputUsedQuantity">Qtd Usada:</label>
+							<input type="text" id="inputUsedQuantity" name="usedQuantity" class="form-control"
+								th:value="${dto.usedQuantity}" required>
+						</div>
+
+						<div class="col-md-4">
+							<label for="inputPrice">Preço:</label>
+							<input type="text" id="inputPrice" name="price" class="form-control" th:value="${dto.price}"
+								required>
+						</div>
+
+					</div>
+
+
+					<div class="form-row mb-1">
+						<div class="col-md-12">
+							<br>
+							<button type="submit" id="" class="btn btn-new">ATUALIZAR</button>
+						</div>
+					</div>
+
+				</form>
 			</div>
-			<nav>
-				<ul class="container">
-					<li><a href="/attendances">Agenda</a></li>
-					<li><a href="/clients">Clientes</a></li>
-					<li><a href="/providers">Fornecedores</a></li>
-					<li><a href="/professionals">Funcionários</a></li>
-					<li><a href="/products">Produtos</a></li>
-				</ul>
-			</nav>
-	<form th:action="@{/updateProducts}" th:object="${dto}" method="POST">
-	
-		<input type="hidden" name="id" th:value="${dto.id}" th:field="${dto.id}">
-		<input type="hidden" name="providerId" th:value="${dto.provider.id}" th:field="${dto.provider.id}">
-	
-		<div>
-			<label for="inputName">Nome:</label> 
-			<input type="text" id="inputName" name="name" class="form-control" th:value="${dto.name}" required>
+
+			<div class="col-md-6">
+				<img src="../assets/images/produtos.png" alt="agendamento" class="img-fluid">
+			</div>
+
+
 		</div>
-		
-		<div>
-			<label for="inputQuantitySKU">Quantidade em Estoque:</label> 
-			<input type="text" id="inputQuantitySKU" name="quantitySku" th:value="${dto.quantitySku}" class="form-control" required>		
-		</div>
-		
-		<div>
-			<label for="inputUsedQuantity">Quantidade Usada:</label> 
-			<input type="text" id="inputUsedQuantity" name="usedQuantity" class="form-control" th:value="${dto.usedQuantity}" required>		
-		</div>
-				
-		<div>
-			<label for="inputPrice">Preço:</label> 
-			<input type="text" id="inputPrice" name="price" class="form-control" th:value="${dto.price}" required>		
-		</div>
-		
-		<div>
-			<label for="selectProvider">Fornecedor: <span th:text="${dto.provider.name}"></span> </label> 
-		
-		</div>
-		
-		<div>
-			
-			<button type="submit" id="" class="btn btn-primary">Atualizar</button>
-		</div>
+
+	</div>
 </body>
 
 </html>

@@ -49,7 +49,7 @@
 			<div class="col-md-6 divCadastro">
 
 				<form th:action="@{/insertProfessionals}" th:object="${dto}" method="POST">
-					<div class="form-row">
+					<div class="form-row mb-1">
 						<div class="col-md-6">
 							<label for="inputName">Nome:</label>
 							<input type="text" id="inputName" name="name" class="form-control" required>
@@ -61,10 +61,10 @@
 						</div>
 					</div>
 
-					<div class="form-row">
+					<div class="form-row mb-1">
 						<div class="col-md-6">
-							<label for="inputContact">Contato:</label>
-							<input type="text" id="inputContact" name="contact" class="form-control" required>
+							<label for="inputContact">Email:</label>
+							<input type="email" id="inputContact" name="contact" class="form-control" required>
 						</div>
 
 						<div class="col-md-6">
@@ -73,10 +73,11 @@
 						</div>
 					</div>
 
-
-					<div>
-						<label for="inputAddress">Endereço:</label>
-						<input type="text" id="inputAddress" name="address" class="form-control">
+					<div class="form-row mb-1">
+						<div class="col-md-12">
+							<label for="inputAddress">Endereço:</label>
+							<input type="text" id="inputAddress" name="address" class="form-control">
+						</div>
 					</div>
 
 					<div>
