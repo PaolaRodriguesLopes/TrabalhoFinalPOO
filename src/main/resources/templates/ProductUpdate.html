@@ -88,7 +88,7 @@
 
 						<div class="col-md-4">
 							<label for="inputPrice">Preço:</label>
-							<input type="text" id="inputPrice" name="price" class="form-control" th:value="${dto.price}"
+							<input type="text" id="inputPrice" maxlength="10" name="price" onkeypress="mask()" class="form-control" th:value="${dto.price}"
 								required>
 						</div>
 
@@ -113,6 +113,13 @@
 		</div>
 
 	</div>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+	<script>
+      	function mask ()
+		{
+			$('#inputPrice').mask('###0.00', {reverse: true});
+		}
+    </script>
 </body>
 
 </html>

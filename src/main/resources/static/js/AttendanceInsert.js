@@ -18,7 +18,7 @@ $(document).ready (() => {
         if (value !== null && value !== '' && (value.length === 16 || value.length === 19)) {
             value = value.replace ('T', ' ');
             if (!checkIfIsValidDate (value)) {
-                alert ('DATA EM USO');
+                alert ('DATA/HORA EM USO! TENTE UM ATENDIMENTO PARA DEPOIS DE 30 MIN');
             }
         }
     });
@@ -33,7 +33,7 @@ $(document).ready (() => {
             if (value !== null && value !== '' && (value.length === 16 || value.length === 19)) {
                 value = value.replace ('T', ' ');
                 if (!checkIfIsValidDate (value)) {
-                    alert ('DATA EM USO');
+                    alert ('DATA/HORA EM USO! TENTE UM ATENDIMENTO PARA DEPOIS DE 30 MIN');
                 }
                 else {
                     form.submit ();
