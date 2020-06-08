@@ -18,5 +18,4 @@ public interface IAttendanceRepository extends JpaRepository<Attendance, Integer
 	
 	@Transactional (readOnly = true)
 	public List<Attendance> findAllByClient (Client client);
-	
 }

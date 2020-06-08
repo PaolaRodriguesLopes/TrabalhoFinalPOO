@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -70,6 +71,20 @@ public class AttendanceController {
 		}
 		mv.addObject("attendances", listDto);
 		return mv;
+	}
+	
+	@GetMapping("/attendancesByProfessionalAjax")
+	public ResponseEntity<List<AttendanceDTO>> getAttendancesByProfessionalAjax(@RequestParam Integer id) {
+		Professional p = ps.getProfessionalById (id);
+		List<Attendance> listAtt = as.getAttendancesByProfessional(p);
+		List<AttendanceDTO> listDto = listAtt.stream ().map (att -> new AttendanceDTO (att)).collect (Collectors.toList ());
+		for (int index = 0; index < listAtt.size(); index++) {
+			for (Integer productId : listAtt.get(index).getProductsIds()) {
+				Product prod = productService.getProductById(productId);
+				listDto.get(index).getProducts().add(new ProductDTO(prod));
+			}
+		}
+		return ResponseEntity.ok().body(listDto);
 	}
 	
 	@GetMapping("/attendancesByClient")
