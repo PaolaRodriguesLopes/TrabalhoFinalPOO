@@ -17,6 +17,10 @@
 	</head>
 	
 	<body>
+		<div class="development">Development by 
+			<span><a class="" href="https://www.linkedin.com/in/fernando2dias/" target="_blank">Fernando Dias Motta - RA 180016</a></span>
+			<span><a class="" href="https://www.linkedin.com/in/paola-rodrigues-lopes/" target="_blank">Paola Rodrigues Lopes - RA 180115</a></span>
+		</div>
 		<div class="topo">
 			<img src="../assets/images/topo.png" class="img-fluid">
 			</div>
@@ -28,6 +32,8 @@
 					<li><a class="actived" href="/professionals">Funcionários</a></li>
 					<li><a href="/products">Produtos</a></li>
 				</ul>
+
+				
 			</nav>
 
 
@@ -57,7 +63,7 @@
 					<td th:text="${p.address}"></td>
 					<td th:text="${p.roles.toString ().replace ('[', '').replace (']', '')}"></td>
 					<td>
-						<a th:href="@{'attendancesByProfessional?id=' + ${p.id}}"> Atendimentos </a>
+						<a class="badge badge-success" th:href="@{'attendancesByProfessional?id=' + ${p.id}}"> Atendimentos </a>
 					</td>					
 					<td>
 						<a th:href="@{'/update?id=' + ${p.id}}"> <img src="../assets/images/edit-icon.png" width="30px" title="Editar"> </a>

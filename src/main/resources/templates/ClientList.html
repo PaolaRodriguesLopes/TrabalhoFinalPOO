@@ -17,6 +17,10 @@
 	</head>
 	
 	<body>
+		<div class="development">Development by 
+			<span><a class="" href="https://www.linkedin.com/in/fernando2dias/" target="_blank">Fernando Dias Motta - RA 180016</a></span>
+			<span><a class="" href="https://www.linkedin.com/in/paola-rodrigues-lopes/" target="_blank">Paola Rodrigues Lopes - RA 180115</a></span>
+		</div>
 		<div class="topo">
 			<img src="../assets/images/topo.png" class="img-fluid">
 			</div>
@@ -56,7 +60,7 @@
 					<td th:text="${c.contact}"></td>
 					<td th:text="${c.address}"></td>
 					<td>
-						<a th:href="@{'attendancesByClient?id=' + ${c.id}}"> Atendimentos </a>
+						<a class="badge badge-success" th:href="@{'attendancesByClient?id=' + ${c.id}}"> Atendimentos </a>
 					</td>	
 					<td>
 						<a th:href="@{'/redirectToUpdateClient?id=' + ${c.id}}"> <img src="../assets/images/edit-icon.png" width="30px" title="Editar"> </a>
