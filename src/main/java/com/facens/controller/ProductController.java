@@ -83,7 +83,7 @@ public class ProductController {
 	{
 		try {
 			if (ps.getUsedProductsCountByProductId (id) != 0) {
-				return "redirect:/errorPage";
+				return "redirect:/errorPage?message=Este produto nao pode ser excluido&back=products";
 			}
 
 			Product p = ps.getProductById (id);
@@ -92,10 +92,10 @@ public class ProductController {
 				return "redirect:/products";
 			}
 			else {
-				return "redirect:/errorPage";
+				return "redirect:/errorPage?message=Este produto nao pode ser excluido&back=products";
 			}
 		} catch (Exception e) {
-			return "redirect:/errorPage";
+			return "redirect:/errorPage?message=Este produto nao pode ser excluido&back=products";
 		}
 	}
 }

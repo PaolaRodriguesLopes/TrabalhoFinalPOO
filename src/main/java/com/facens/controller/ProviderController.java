@@ -72,12 +72,12 @@ public class ProviderController {
 				return "redirect:/providers";
 			}
 			else {
-				return "redirect:/errorPage";
+				return "redirect:/errorPage?message=Este fornecedor nao pode ser excluido&back=providers";
 			}
 		} 
 		catch (Exception e) 
 		{
-			return "redirect:/errorPage";
+			return "redirect:/errorPage?message=Este fornecedor nao pode ser excluido&back=providers";
 		}
 	}
 }

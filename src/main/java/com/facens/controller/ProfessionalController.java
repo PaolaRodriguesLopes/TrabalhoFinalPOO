@@ -70,17 +70,17 @@ public class ProfessionalController {
 			if (p != null) {
 				
 				if (p.getAttendances().size() != 0) {
-					return "redirect:/errorPage";
+					return "redirect:/errorPage?message=Este profissional nao pode ser excluido&back=professionals";
 				}
 				
 				ps.deleteById (id);
 				return "redirect:/professionals";
 			}
 			else {
-				return "redirect:/errorPage";
+				return "redirect:/errorPage?message=Este profissional nao pode ser excluido&back=professionals";
 			}
 		} catch (Exception e) {
-			return "redirect:/errorPage";
+			return "redirect:/errorPage?message=Este profissional nao pode ser excluido&back=professionals";
 		}
 	}
 }

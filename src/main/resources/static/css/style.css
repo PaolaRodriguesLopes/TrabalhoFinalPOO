@@ -71,3 +71,19 @@ nav ul li a:hover, nav ul li a.actived{
 .development a:link, .development a:visited{
     color: #fff;
 }
+
+.error-body{
+    background: #f5f9fc;
+}
+.error-content{
+    background: url(../assets/images/error.png);
+    background-size: cover;
+    width: 800px;
+    min-height: 424px;
+    margin: auto;
+}
+
+.error-message{
+    padding-top: 250px;
+    padding-left: 455px;
+}

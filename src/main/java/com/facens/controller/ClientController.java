@@ -71,10 +71,10 @@ public class ClientController {
 				return "redirect:/clients";
 			}
 			else {
-				return "redirect:/errorPage";
+				return "redirect:/errorPage?message=Este cliente nao pode ser excluido&back=clients";
 			}
 		} catch (Exception e) {
-			return "redirect:/errorPage";
+			return "redirect:/errorPage?message=Este cliente nao pode ser excluido&back=clients";
 		}
 	}
 }

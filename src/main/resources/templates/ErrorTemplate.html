@@ -17,7 +17,7 @@
 	</head>
 	
 
-	<body>
+	<body class="error-body">
 		<div class="development">Development by 
 			<span><a class="" href="https://www.linkedin.com/in/fernando2dias/" target="_blank">Fernando Dias Motta - RA 180016</a></span>
 			<span><a class="" href="https://www.linkedin.com/in/paola-rodrigues-lopes/" target="_blank">Paola Rodrigues Lopes - RA 180115</a></span>
@@ -34,7 +34,15 @@
 					<li><a href="/products">Produtos</a></li>
 				</ul>
 			</nav>
-		<h1> Página de erro genérica, claro. Aconteceu um erro. Me personalize e edite depois!</h1>
+		<div class="error-content">
+
+			<div class="error-message">
+				<span th:text="${message}">Deu ruim aqui parça!</span><br>
+				<a class="btn btn-new btn-small" th:href=@{${back}}>Voltar</a>
+			</div>
+
+
+		</div>
 
 	</body>
 
