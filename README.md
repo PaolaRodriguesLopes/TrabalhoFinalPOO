@@ -11,6 +11,7 @@ Tecnologias utilizadas:
 - H2 database
 - Bootstrap 4
 - HTML5/CSS3
+- JQuery/AJAX
 - Photoshop
 
 #### Desenvolvido por:
