@@ -87,3 +87,11 @@ nav ul li a:hover, nav ul li a.actived{
     padding-top: 250px;
     padding-left: 455px;
 }
+
+.social-media{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    padding: 0;
+}

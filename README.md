@@ -1,6 +1,6 @@
 ## Facens - Engenharia da Computação
 ### Disciplina: Programação Orientada á Objeto 2
-#### Tema: Desenvolver uma aplicação web para um salão de beleza.
+#### Tema: Agendamento Horário Salão de Beleza/Barbearia
 Tecnologias utilizadas:
 - Java
 - Springboot Framework;
@@ -18,7 +18,7 @@ Tecnologias utilizadas:
 - Paola Lopes Rodrigues - RA 180115
 
 Nossa aplicação pode ser conferida no endereço:
-[Preview da aplicação - Herokuapp](https://atividade-final-paola-fernando.herokuapp.com/)
+[Preview da Aplicação - Herokuapp](https://atividade-final-paola-fernando.herokuapp.com/)
 
 #### Agradecimentos:
 - Professor Glauco Todesco
