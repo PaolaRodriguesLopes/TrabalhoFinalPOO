@@ -16,8 +16,8 @@ public class AttendanceDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Integer id;
 	
-	@JsonFormat (pattern = "yyyy-MM-dd HH:mm")
-	private Timestamp datetime;
+	@JsonFormat (pattern = "yyyy-MM-dd HH:mm:ss")
+	private String datetime;
 	
 	private String status;
 	
@@ -29,7 +29,7 @@ public class AttendanceDTO implements Serializable {
 	public AttendanceDTO(Attendance attendance) {
 		super();
 		this.id = attendance.getId();
-		this.datetime = attendance.getDatetime();
+		this.datetime = attendance.getDatetime().toString();
 		this.status = attendance.getStatus();
 		this.client = new ClientDTO (attendance.getClient ());
 		this.professionals = attendance.getProfessionals ().stream().map(p -> new ProfessionalDTO(p)).collect(Collectors.toSet());
@@ -43,11 +43,11 @@ public class AttendanceDTO implements Serializable {
 		this.id = id;
 	}
 
-	public Timestamp getDatetime() {
+	public String getDatetime() {
 		return datetime;
 	}
 	
-	public void setDatetime(Timestamp datetime) {
+	public void setDatetime(String datetime) {
 		this.datetime = datetime;
 	}
 	

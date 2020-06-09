@@ -110,7 +110,7 @@ public class AttendanceService {
 	}
 	
 	public Attendance fromDTO (AttendanceDTO dto) {
-		Attendance att = new Attendance(dto.getId(), dto.getDatetime(), null);
+		Attendance att = new Attendance(dto.getId(), Timestamp.valueOf(dto.getDatetime()), null);
 		
 		Client c = cs.fromDTO(dto.getClient ());
 		att.setClient (c);
@@ -135,6 +135,10 @@ public class AttendanceService {
 		
 		String datetime = dto.getDatetime ();
 		datetime = datetime.replaceAll("T", " ");
+		if (datetime.length() == 16) {
+			datetime += ":00";
+		}
+
 		att.setDatetime (Timestamp.valueOf (datetime));
 		
 		Client c = cs.getClientById (dto.getClientId ());

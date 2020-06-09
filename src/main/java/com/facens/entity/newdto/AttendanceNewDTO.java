@@ -16,7 +16,7 @@ public class AttendanceNewDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Integer id;
 	
-	@JsonFormat (pattern = "yyyy-MM-dd HH:mm:ss.SSS")
+	//@JsonFormat (pattern = "yyyy-MM-dd HH:mm:ss.SSS")
 	@NotNull (message = "Datetime is required")
 	private String datetime;
 	

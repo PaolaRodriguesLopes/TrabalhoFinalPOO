@@ -15,14 +15,13 @@ function listAllByProfessional (id) {
                 let responseText = request.responseText;
                 let listAttendances = JSON.parse (responseText);
                 if (listAttendances !== null) {
-                    
                     listAttendances.forEach ((attendance) => {
                         if (attendance.status !== "Cancelado" && listDatetime.indexOf (attendance.datetime) === -1) {
                             listDatetime.push (attendance.datetime);
                         }
                     });
 
-                   
+                   console.log ('bla bla bla');
                 }
             }
         };
