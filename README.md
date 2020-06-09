@@ -16,7 +16,7 @@ Tecnologias utilizadas:
 
 #### Desenvolvido por:
 - Fernando Dias Motta - RA 180016
-- Paola Lopes Rodrigues - RA 180115
+- Paola Rodrigues Lopes - RA 180115
 
 Nossa aplicação pode ser conferida no endereço:
 [Preview da Aplicação - Herokuapp](https://atividade-final-paola-fernando.herokuapp.com/)
